@@ -1,0 +1,73 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# tibblizer
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/tibblizer)](https://CRAN.R-project.org/package=tibblizer)
+<!-- badges: end -->
+
+The goal of tibblizer is to make it easier to support tibbles in functions that are not currently designed to support them.
+
+## Installation
+
+You can install the released version of tibblizer from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("tibblizer")
+```
+
+## Example
+
+The `stats::reshape()` function assumes that `x[i, j]` returns a vector if `j` refers to a single columns.
+Tibbles never drop dimensions and always return a data frame.
+
+```{r example-bad, error = TRUE}
+N <- 3
+M <- 2
+
+tbl <- tibble::tibble(
+  g = gl(N, M),
+  time = rep(seq_len(M), N),
+  variable = rnorm(M * N)
+)
+
+reshape(
+  tbl, v.names = "variable",
+  idvar = "g", timevar = "time", direction = "wide"
+)
+```
+
+tibblizer to the rescue:
+Use `tbl_()` to create a tibble-friendly version of the `reshape()` function:
+
+```{r example-good, error = TRUE}
+library(tibblizer)
+
+reshape <- tbl_(reshape)
+
+reshape(
+  tbl, v.names = "variable",
+  idvar = "g", timevar = "time", direction = "wide"
+)
+```
+
+---
+
+Please note that the 'tibblizer' project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
+[Copied to clipboard]
