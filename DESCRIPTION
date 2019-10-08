@@ -16,8 +16,11 @@ URL: https://krlmlr.github.io/tibblizer,
     https://github.com/krlmlr/tibblizer
 BugReports: https://github.com/krlmlr/tibblizer/issues
 Imports: 
+    rlang,
     stats,
     tibble
+Suggests: 
+    MCMCglmm
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

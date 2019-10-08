@@ -3,4 +3,6 @@
 S3method(reshape,default)
 S3method(reshape,tbl_df)
 export(reshape)
+export(tbl_)
+import(rlang)
 import(tibble)
