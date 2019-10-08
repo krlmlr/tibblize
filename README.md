@@ -27,7 +27,8 @@ install.packages("tibblizer")
 
 The `stats::reshape()` function assumes that `x[i, j]` returns a vector
 if `j` refers to a single columns. Tibbles never drop dimensions and
-always return a data frame.
+always return a data frame. This results in a weird behavior of the
+reshape function:
 
 ``` r
 N <- 3
@@ -39,6 +40,7 @@ tbl <- tibble::tibble(
   variable = rnorm(M * N)
 )
 
+# Current behavior:
 reshape(
   tbl, v.names = "variable",
   idvar = "g", timevar = "time", direction = "wide"
@@ -49,6 +51,16 @@ reshape(
 #> 1 1                 NA
 #> 2 2                 NA
 #> 3 3                 NA
+
+# Expected result:
+reshape(
+  as.data.frame(tbl), v.names = "variable",
+  idvar = "g", timevar = "time", direction = "wide"
+)
+#>   g variable.1 variable.2
+#> 1 1  0.4255560  1.2046573
+#> 3 2 -0.5234699 -0.1084122
+#> 5 3  0.2087368  0.2490197
 ```
 
 tibblizer to the rescue: Use `tbl_()` to create a tibble-friendly
@@ -64,9 +76,9 @@ reshape(
   idvar = "g", timevar = "time", direction = "wide"
 )
 #>   g variable.1 variable.2
-#> 1 1  0.4524000  0.4105407
-#> 3 2  0.8823839 -0.6568657
-#> 5 3  0.3297717  1.7623047
+#> 1 1  0.4255560  1.2046573
+#> 3 2 -0.5234699 -0.1084122
+#> 5 3  0.2087368  0.2490197
 ```
 
 -----
