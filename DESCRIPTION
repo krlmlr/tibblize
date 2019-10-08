@@ -1,4 +1,4 @@
-Package: tibblizer
+Package: tibblize
 Title: Compatibility codes for 'tibble'
 Version: 0.0.0.9001
 Date: 2019-10-08
@@ -12,9 +12,9 @@ Description: Provides compatibility functions to simplify using
     'tibbles' in functions that expect data frames with their specific
     behaviors.
 License: GPL-3
-URL: https://krlmlr.github.io/tibblizer,
-    https://github.com/krlmlr/tibblizer
-BugReports: https://github.com/krlmlr/tibblizer/issues
+URL: https://krlmlr.github.io/tibblize,
+    https://github.com/krlmlr/tibblize
+BugReports: https://github.com/krlmlr/tibblize/issues
 Imports: 
     rlang,
     stats,

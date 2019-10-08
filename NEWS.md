@@ -1,4 +1,4 @@
-# tibblizer 0.0.0.9001
+# tibblize 0.0.0.9001
 
 Initial release
 

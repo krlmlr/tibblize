@@ -13,21 +13,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-# tibblizer
+# tibblize
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/tibblizer)](https://CRAN.R-project.org/package=tibblizer)
+[![CRAN status](https://www.r-pkg.org/badges/version/tibblize)](https://CRAN.R-project.org/package=tibblize)
 <!-- badges: end -->
 
-The goal of tibblizer is to make it easier to support tibbles in functions that are not currently designed to support them.
+The goal of tibblize is to make it easier to support tibbles in functions that are not currently designed to support them.
 
 ## Installation
 
-You can install the released version of tibblizer from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of tibblize from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("tibblizer")
+install.packages("tibblize")
 ```
 
 ## Example
@@ -59,11 +59,11 @@ reshape(
 )
 ```
 
-tibblizer to the rescue:
+tibblize to the rescue:
 Use `tbl_()` to create a tibble-friendly version of the `reshape()` function:
 
 ```{r example-good, error = TRUE}
-library(tibblizer)
+library(tibblize)
 
 reshape <- tbl_(reshape)
 
@@ -75,7 +75,7 @@ reshape(
 
 ---
 
-Please note that the 'tibblizer' project is released with a
+Please note that the 'tibblize' project is released with a
 [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
 [Copied to clipboard]

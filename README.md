@@ -1,26 +1,26 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tibblizer
+# tibblize
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/tibblizer)](https://CRAN.R-project.org/package=tibblizer)
+status](https://www.r-pkg.org/badges/version/tibblize)](https://CRAN.R-project.org/package=tibblize)
 <!-- badges: end -->
 
-The goal of tibblizer is to make it easier to support tibbles in
+The goal of tibblize is to make it easier to support tibbles in
 functions that are not currently designed to support them.
 
 ## Installation
 
-You can install the released version of tibblizer from
+You can install the released version of tibblize from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("tibblizer")
+install.packages("tibblize")
 ```
 
 ## Example
@@ -63,11 +63,11 @@ reshape(
 #> 5 3  0.2087368  0.2490197
 ```
 
-tibblizer to the rescue: Use `tbl_()` to create a tibble-friendly
+tibblize to the rescue: Use `tbl_()` to create a tibble-friendly
 version of the `reshape()` function:
 
 ``` r
-library(tibblizer)
+library(tibblize)
 
 reshape <- tbl_(reshape)
 
@@ -83,6 +83,6 @@ reshape(
 
 -----
 
-Please note that the ‘tibblizer’ project is released with a [Contributor
+Please note that the ‘tibblize’ project is released with a [Contributor
 Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project,
 you agree to abide by its terms. \[Copied to clipboard\]
